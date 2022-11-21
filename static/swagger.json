@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Pranjal Tripathi",
+      "version": "1.0.0",
+      "title": "Python-Flask-HelloWorld-API",
+      "contact": {
+        "email": "abc@gmail.com"
+      },
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Python API Request",
+        "description": "Sample API documentation"
+      }
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "tags": [
+            "Get Request"
+          ],
+          "summary": "Returns data",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Post Request"
+          ],
+          "summary": "get payload and return data",
+          "requestBody": {
+            "description": "Request Post Object - payload",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/payload"
+                }
+              }
+            }
+          },
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "payload": {
+          "properties": {
+            "Data": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
