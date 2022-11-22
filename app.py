@@ -37,10 +37,10 @@ def get_transform():
         
         with open('payload.json', 'w') as f:
             json.dump(rawData, f)
-        with open('transform.dw', 'w') as ft:
+        with open('transform.dwl', 'w') as ft:
             ft.write(DW_Script)
         
-        dataweave = subprocess.run(["./dw", "-i", "payload", "payload.json", "-f", "transform.dw"], stdout=subprocess.PIPE, text=True)
+        dataweave = subprocess.run(["./dw", "-i", "payload", "payload.json", "-f", "transform.dwl"], stdout=subprocess.PIPE, text=True)
         # print(dataweave.stdout)
         return jsonify(Output=(dataweave.stdout))
         # return jsonify(rawData)
